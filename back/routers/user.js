@@ -72,6 +72,7 @@ router.put("/:id", upload.single("image"), async(req, res) => {
     }
 });
 
+// 查詢
 router.get("/:id", async(req, res) => {
     try{
         let user = await User.findById(req.params.id);
@@ -84,3 +85,6 @@ router.get("/:id", async(req, res) => {
         console.log(err);
     }
 })
+
+//讓其他程式的可以尋找的到
+module.exports = router;
