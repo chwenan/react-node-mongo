@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const cors = requrie("cors");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -19,10 +19,10 @@ const  MONGO_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${
 
 mongoose
 .connect(MONGO_URI, {useNewUrlParser: true, useUnifiedTopology:true})
-.than(() => {console.log("MongonDB is connected")})
+.then(() => {console.log("MongonDB is connected")})
 .catch((err) => {console.log(err)});
 
 app.use(express.json());
 app.use(cors());
-app.use("/user", requrie("./routers/user.js"));
+app.use("/user", require("./routers/user.js"));
 app.listen(5000, () => {console.log("Server is running on port 5000")});
